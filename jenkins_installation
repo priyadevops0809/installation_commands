@@ -1,0 +1,15 @@
+jenkins install commands:
+
+frist login into amazon server  
+step1: open windows powershell and go cd downloads and paste the url which eg shpows like (ssh -i "priyabharghav-keypair1.pem" ec2-user@ec2-18-208-199-32.compute-1.amazonaws.com) is get by amazon server 
+step 2: connect to server and move to root user using the command sudo -i or sudo su -
+step 3: paste below commands
+yum install java-21-amazon-corretto -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo     https://pkg.jenkins.io/rpm-stable/jenkins.repo
+yum install jenkins -y
+systemctl start jenkins
+systemctl status jenkins
+step 4:Allow the port 8080 in security groups in Aws server console 
+step5: copy the public ip , paste the ip along with semicolon and 8080
+step 6: cat /var/lib/jenkins/secrets/initialAdminPassword
+will get token and paste , see the dashboard of jenkins
