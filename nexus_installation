@@ -1,0 +1,21 @@
+nexus is used for storoage of artifacts 
+
+NEXUS SETUP COMMANDS : (copy paste these commands one by one)
+
+yum install java-21-amazon-corretto -y
+
+cd /opt
+while pasting the below command kindly check the current version of nexus/ 3.92.0.03.
+https://download.sonatype.com/nexus/3/nexus-3.92.0-03-linux-x86_64.tar.gz
+wget https://download.sonatype.com/nexus/3/nexus-3.92.0-03-linux-x86_64.tar.gz
+tar -zxvf nexus-3.92.0-03-linux-x86_64.tar.gz
+useradd nexus
+chown -R nexus:nexus nexus-3.92.0-03 sonatype-work
+su - nexus
+cd /opt/nexus-nexus-3.92.0-03/bin/
+./nexus start
+
+once start the nexus server and paste the IP of server and port number 8081 the frist time username will be admin and token will get 
+once login into nexus create a repo , after integrate with jenkins , install the puglin nexus artifact repo and click on the configure , 
+after mavem steps add nexus , add the nexus credentials and group id and versions will get from POM.xml file in github add the nexus repo name as u create earlier .
+add the container type is war and file like as target/myweb-8.7.3.war(eg)
