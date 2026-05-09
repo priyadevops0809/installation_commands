@@ -13,3 +13,6 @@ step 4:Allow the port 8080 in security groups in Aws server console
 step5: copy the public ip , paste the ip along with semicolon and 8080
 step 6: cat /var/lib/jenkins/secrets/initialAdminPassword
 will get token and paste , see the dashboard of jenkins
+How to install maven for Build the code , 
+step 1 : click on manage jenkins icon and go to tools and add the Maven name ( any).
+step 2: under job , configure the build steps and select the invoke top level maven tagets and under GOals section , we have given the clean install .and save 
