@@ -1,0 +1,24 @@
+Deploy the War file on new server , so we will take the new server and install tomact using below commands.
+step:1 
+yum install java-21-amazon-corretto -y
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.117/bin/apache-tomcat-9.0.117.tar.gz
+tar -zxvf apache-tomcat-9.0.117.tar.gz
+sed -i '56 a\<role rolename="manager-gui"/>' apache-tomcat-9.0.117/conf/tomcat-users.xml
+sed -i '57 a\<role rolename="manager-script"/>' apache-tomcat-9.0.117/conf/tomcat-users.xml
+sed -i '58 a\<user username="tomcat" password="admin@123" roles="manager-gui, manager-script"/>' apache-tomcat-9.0.117/conf/tomcat-users.xml
+sed -i '59 a\</tomcat-users>' apache-tomcat-9.0.117/conf/tomcat-users.xml
+sed -i '56d' apache-tomcat-9.0.117/conf/tomcat-users.xml
+sed -i '21d' apache-tomcat-9.0.117/webapps/manager/META-INF/context.xml
+sed -i '22d' apache-tomcat-9.0.117/webapps/manager/META-INF/context.xml
+sh apache-tomcat-9.0.117/bin/startup.sh
+
+ (from6 to 12)we have edit the manager access and edit the file and given the name is tomcat and password :admin@123
+
+step 2: After installation of tomcat , go to the puglin and install the deploy to container in available puglin.
+step 3: Go to jod and select the configure and add post build section , deploy war/ear to container 
+target/*.war
+any name (display in tomcat)
+credential: username :tomcat
+            password: admin@123
+id :any name 
+url :public ip of tomcat server :8080 (http://98.93.129.60:8080/) example and save the changes
