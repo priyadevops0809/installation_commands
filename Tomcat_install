@@ -1,7 +1,8 @@
 Deploy the War file on new server , so we will take the new server and install tomact using below commands.
 step:1 
+while the paste the below the commands , check the url of tomact version 9.0.117 to if any update
 yum install java-21-amazon-corretto -y
-wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.117/bin/apache-tomcat-9.0.117.tar.gz
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.117/bin/apache-tomcat-9.0.117.tar.gz                  
 tar -zxvf apache-tomcat-9.0.117.tar.gz
 sed -i '56 a\<role rolename="manager-gui"/>' apache-tomcat-9.0.117/conf/tomcat-users.xml
 sed -i '57 a\<role rolename="manager-script"/>' apache-tomcat-9.0.117/conf/tomcat-users.xml
